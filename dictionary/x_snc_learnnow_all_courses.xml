@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="All_Courses" max_length="40" name="x_snc_learnnow_all_courses" type="collection">
+        <element attributes="import_attribute_name=Badge,edge_encryption_enabled=true" label="Badge" max_length="40" name="u_badge" type="string"/>
+        <element attributes="import_attribute_name=Content department,edge_encryption_enabled=true" label="Content department" max_length="40" name="u_content_department" type="string"/>
+        <element attributes="import_attribute_name=Content owner,edge_encryption_enabled=true" label="Content owner" max_length="40" name="u_content_owner" type="string"/>
+        <element attributes="import_attribute_name=Delivery type,edge_encryption_enabled=true" label="Delivery type" max_length="40" name="u_delivery_type" type="string"/>
+        <element attributes="import_attribute_name=Duraton" label="Duraton" max_length="40" name="u_duraton" type="integer"/>
+        <element attributes="import_attribute_name=ID,edge_encryption_enabled=true" label="ID" max_length="40" name="u_id" type="string"/>
+        <element attributes="import_attribute_name=Objectives,edge_encryption_enabled=true" label="Objectives" max_length="600" name="u_objectives" type="string"/>
+        <element attributes="import_attribute_name=Overview,edge_encryption_enabled=true" label="Overview" max_length="167" name="u_overview" type="string"/>
+        <element attributes="import_attribute_name=Points" label="Points" max_length="40" name="u_points" type="integer"/>
+        <element attributes="import_attribute_name=Secondary audience,edge_encryption_enabled=true" label="Secondary audience" max_length="40" name="u_secondary_audience" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Title" max_length="40" name="u_title" type="string"/>
+    </element>
+</database>

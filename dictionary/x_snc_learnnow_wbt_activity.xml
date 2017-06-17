@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="WBT Activity" max_length="40" name="x_snc_learnnow_wbt_activity" type="collection">
+        <element label="Course" max_length="32" name="course" reference="x_snc_learnnow_course_wbt" type="reference"/>
+        <element label="Duration" max_length="40" name="duration" type="glide_duration"/>
+        <element label="Title" max_length="80" name="title" type="string"/>
+        <element choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Assessment" sequence="0" value="Assessment"/>
+                <element label="Document" sequence="0" value="Document"/>
+                <element label="eLearning" sequence="0" value="eLearning"/>
+                <element label="URL" sequence="0" value="URL"/>
+                <element label="Video" sequence="0" value="Video"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="course"/>
+        </index>
+    </element>
+</database>

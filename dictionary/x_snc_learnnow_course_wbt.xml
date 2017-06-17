@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="x_snc_learnnow_course" label="WBT" max_length="40" name="x_snc_learnnow_course_wbt" type="collection"/>
+</database>

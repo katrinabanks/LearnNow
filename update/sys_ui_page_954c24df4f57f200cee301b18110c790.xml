@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[var learn = angular.module('learn',['angular.filter']);
+
+learn.run(function($http){
+	$http.defaults.headers.get = {
+		'X-UserToken' : window.g_ck
+	};
+});
+
+learn.filter('htmlToPlaintext', function() {
+    return function(text) {
+      return  text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+  }
+);
+
+learn.controller('LearnController',['$scope', '$http', '$sce', function($scope, $http, $sce){
+	$scope.name = window.first_name || 'Admin';
+
+	$scope.fuzzy = {catalog : ''};
+
+	$scope.active_count = 0;
+	$scope.overdue_count = 0;
+
+	$scope.course_visible = false;
+
+	$scope.url = {
+		catalog: '/api/now/table/x_snc_learnnow_course?sysparm_display_value=true',
+		badges: '/api/now/table/x_snc_learnnow_badge',
+		my_badges: '/api/now/table/x_snc_learnnow_student_badge?sysparm_display_value=both&sysparm_fields=&student=' + window.user_id,
+		my_transcript: '/api/now/table/x_snc_learnnow_student_transcript?sysparm_query=user=' + window.user_id + '&sysparm_display_value=true',
+		manager_transcripts: '/api/now/table/x_snc_learnnow_student_transcript?sysparm_display_value=true&user.manager=' + window.user_id
+	}
+
+	$scope.view = 'dashboard';
+
+	$scope.catalog_courses = [];
+	$scope.my_badges = [];
+	$scope.show_badges = [];
+
+	$scope.show_cats = function(course){
+		if(course.title.toLowerCase().indexOf($scope.fuzzy_catalog) > -1){
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	$scope.$watch('fuzzy',function(){
+		console.log('changed');
+		if($scope.fuzzy.catalog) {
+			var courses = angular.copy($scope.catalog_courses);
+		    $scope.visible_courses = courses.filter(function(course){
+		    	if(course.title.toLowerCase().indexOf($scope.fuzzy.catalog.toLowerCase()) > -1){
+					return true;
+				} else {
+					return false;
+				}
+		    });
+		} else {
+			$scope.visible_courses = $scope.catalog_courses;
+		}
+	}, true);
+
+	$scope.close_course = function()
+	{
+		$scope.course_visible = false;
+	};
+
+	$scope.get_details = function(course)
+	{
+		if (course.sys_class_name == 'WBT') {
+			var url = '/api/now/table/x_snc_learnnow_wbt_activity?course='+ course.sys_id;
+			$http.get(url).then(function(r){
+				console.log(r.data.result);
+				course.activities = r.data.result;
+			});
+		}
+	};
+
+	$scope.get_transcript = function(){
+		$http.get($scope.url.my_transcript).then(function(r){
+
+			$scope.my_transcript = r.data.result;
+			for (var i = $scope.my_transcript.length - 1; i >= 0; i--) {
+				if(!$scope.my_transcript[i].completion_date){
+					$scope.active_count++;
+				}
+				if($scope.my_transcript[i].overdue == 'true'){
+					$scope.overdue_count++;
+				}
+			}
+			console.log('trans',r.data.result);
+
+		});
+	}
+
+	$scope.get_manager_transcripts = function(){
+		$http.get($scope.url.manager_transcripts).then(function(r){
+
+			$scope.manager_transcripts = r.data.result;
+			console.log('man',r.data.result);
+
+		});
+	};
+
+	$scope.launch_course = function(id)
+	{
+		console.log('loaded course',id);
+		$scope.course_visible = true;
+	};
+
+	$scope.renderHtml = function(html_code)
+	{
+	    return $sce.trustAsHtml(html_code);
+	};
+
+	$scope.get_badge_images = function(){
+		for (var i = $scope.my_badges.length - 1; i >= 0; i--) {
+			$http.get($scope.my_badges[i].badge.link + '?sysparm_query=&sysparm_display_value=true').then(function(r){
+				$scope.show_badges.push(r.data.result);
+			});
+		}
+		console.log('final',$scope.show_badges);
+	}
+
+	$scope.init = function()
+	{
+		$http.get($scope.url.catalog).then(function(r){
+			console.log('cats',r.data.result);
+			$scope.catalog_courses = r.data.result;
+			$scope.visible_courses = $scope.catalog_courses;
+		});
+
+		$http.get($scope.url.my_badges).then(function(r){
+
+			$scope.my_badges = r.data.result;
+
+			$scope.get_badge_images();
+
+			console.log('badges',r.data.result);
+
+		});
+
+		$http.get($scope.url.my_badges).then(function(r){
+
+			$scope.my_badges = r.data.result;
+
+		});
+
+		$scope.get_transcript();
+
+		$scope.get_manager_transcripts();
+
+		console.log(window.user_id);
+	};
+	$scope.init();
+}]);]]></client_script>
+        <description/>
+        <direct>true</direct>
+        <endpoint>x_snc_learnnow_learn.do</endpoint>
+        <html><![CDATA[<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+<g:evaluate object="true">
+	var g_ck = gs.getSessionToken();
+	var user = gs.getUser();
+	var first_name = gs.getFirstName();
+</g:evaluate>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+
+	<link rel="stylesheet" href="682da0934f97f200cee301b18110c7a8.cssdbx" />
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,900" rel="stylesheet" />
+</head>
+<body ng-app="learn" ng-controller="LearnController">
+	<div class="Learn">
+		<div class="header" ng-click="course_visible = true">
+			<div class="max">
+				<h1>
+					Learn<span>Now</span>
+				</h1>
+				<div class="Personal">
+					<span>Welcome back, {{name}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="Nav">
+			<ul>
+				<li ng-class="{'is-active' : view == 'dashboard'}" ng-click="view = 'dashboard'">Dashboard</li>
+				<li ng-class="{'is-active' : view == 'catalog'}" ng-click="view = 'catalog'">Catalog</li>
+				<li ng-class="{'is-active' : view == 'transcript'}" ng-click="view = 'transcript'">My Transcript</li>
+				<li ng-class="{'is-active' : view == 'badges'}" ng-click="view = 'badges'">My Badges</li>
+				<li ng-class="{'is-active' : view == 'team'}" ng-click="view = 'team'">
+					<span ng-if="manager_transcripts.length &gt; 0">Team</span>
+				</li>
+
+				<!-- <li ng-class="{'is-active' : view == 'team'}" ng-click="view = 'team'" ng-if="manager_transcripts.length &gt; 0">My Team</li> -->
+			</ul>
+		</div>
+		<div class="View">
+			
+			<div class="dashboard" ng-if="view == 'dashboard'">
+
+				<div class="my_quick">
+					<div class="square">
+						<div class="number" ng-bind="active_count"></div>
+						<div class="label">Active Enrollments</div>
+					</div>
+
+					<div class="square">
+						<div class="number" ng-bind="overdue_count"></div>
+						<div class="label">Past due</div>
+					</div>
+
+					<div class="square">
+						<div class="number">{{active_count - overdue_count}}</div>
+						<div class="label">Due soon</div>
+					</div>
+
+					<div class="square">
+						<div class="number">4</div>
+						<div class="label">Recommended</div>
+					</div>					
+
+					<div class="square">
+						<div class="number" ng-bind="show_badges.length"></div>
+						<div class="label">Badges Earned</div>
+					</div>					
+				</div>
+				
+				<div class="my_active">
+					<h2>My Active Enrollments</h2>
+					<div class="table">
+						<table>
+							<tr>
+								<th>Type</th>
+								<th>Title</th>
+								<th>Status</th>
+								<th></th>
+							</tr>
+
+							<tr ng-repeat="enrolled in my_transcript" ng-if="!enrolled.completion_date">
+								<td>
+									<span ng-if="enrolled.course_type == 'x_snc_learnnow_course_ilt'">
+										ILT
+									</span>
+									<span ng-if="enrolled.course_type == 'x_snc_learnnow_course_wbt'">
+										WBT
+									</span>
+								</td>
+								<td>{{enrolled.course.display_value}}</td>
+								<td>{{enrolled.state}}</td>
+								<td>
+									<button ng-click="launch_course(course)">Launch</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="my_suggested">
+					<h2>Suggested Courses</h2>
+					<div class="suggestions">
+
+						<div class="suggestion">
+							<div class="title">
+								Example ILT Class
+							</div>
+							<div class="description">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt impedit dolorem autem accusantium! Provident cumque quae magni perferendis. Esse alias quod reprehenderit numquam recusandae soluta animi libero, doloremque atque earum!
+							</div>
+							<div class="enroll">
+								<button ng-click="enroll_course('1234')">Enroll</button>
+							</div>
+						</div>
+
+						<div class="suggestion">
+							<div class="title">
+								Example WBT Class
+							</div>
+							<div class="description">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt impedit dolorem autem accusantium! Provident cumque quae magni perferendis. Esse alias quod reprehenderit numquam recusandae soluta animi libero, doloremque atque earum!
+							</div>
+							<div class="enroll">
+								<button ng-click="enroll_course('1234')">Enroll</button>
+							</div>
+						</div>
+
+						<div class="suggestion">
+							<div class="title">
+								Example Certification
+							</div>
+							<div class="description">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt impedit dolorem autem accusantium! Provident cumque quae magni perferendis. Esse alias quod reprehenderit numquam recusandae soluta animi libero, doloremque atque earum!
+							</div>
+							<div class="enroll">
+								<button ng-click="enroll_course('1234')">Enroll</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="catalog" ng-if="view == 'catalog'">
+				
+				<h2>Course Catalog</h2>
+
+				<div class="catalog_courses">
+
+					<div class="catalog_filter filter">
+						<span>Filter</span>
+						<input type="text" ng-model="fuzzy.catalog" />
+					</div>
+					{{fuzzy_catalog}}
+					<div class="catalog_course" ng-repeat="course in visible_courses | filter:catalog_filter">
+						
+						<div class="title" ng-bind="course.title"></div>
+
+						<div class="brief" ng-bind-html="renderHtml(course.overview)"></div>
+
+						<div class="details" ng-if="course.detail_visible == true">
+							<div class="field">
+								<span class="label">Duration:</span>{{' '}}{{course.duraton}}
+							</div>
+
+							<div class="field" ng-if="course.target_audience.display_value || course.secondary_audience.display_value">
+								<span class="label">Audience:</span>
+								{{' '}}
+								{{course.target_audience.display_value}}
+								<span ng-if="course.target_audience.display_value ${AND} course.secondary_audience.display_value">,</span>
+								{{course.secondary_audience.display_value}}
+							</div>
+
+							<div class="field">
+								<span class="label">Points:</span>{{' '}}{{course.points}}
+							</div>
+
+							<div class="field">
+								<div class="label">Objectives:</div>
+								<div class="description" ng-bind-html="renderHtml(course.objectives)"></div>
+							</div>
+
+							<div class="field" ng-if="course.activities.length">
+								<div class="label">Activities:</div>
+								<div class="activities">
+									<ul>
+										<li ng-repeat="activity in course.activities">
+											{{activity.title}}{{' '}}-{{' '}}<span>{{activity.type}}</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="actions">
+							<button  class="btn-details" 
+							ng-click="course.detail_visible = !course.detail_visible; get_details(course)">Details</button>
+							<button class="btn-enroll">Enroll</button>
+							<button class="btn-enroll-launch">Enroll and Launch</button>
+						</div>
+
+					</div>
+
+					<div class="count">
+						Showing {{visible_courses.length}} matching results
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="badges" ng-if="view == 'badges'">
+				
+				<h2>Earned Badges</h2>
+
+				<ul>
+					<li ng-repeat="badge in show_badges">
+						<div class="aspect" style="background-image: url('{{badge.image}}')"></div>
+						{{badge.name}}
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="transcript" ng-if="view == 'transcript'">
+				<h2>My Transcript</h2>
+				<div class="table">
+					<table>
+						<tr>
+							<th>Type</th>
+							<th>Status</th>
+							<th>Overdue</th>
+							<th>Title</th>
+							<th>Score</th>
+						</tr>
+
+						<tr ng-repeat="course in my_transcript | orderBy : '-overdue'">
+							<td>
+								<span ng-if="course.course_type == 'x_snc_learnnow_course_ilt'">
+									ILT
+								</span>
+								<span ng-if="course.course_type == 'x_snc_learnnow_course_wbt'">
+									WBT
+								</span>
+							</td>
+							<td>{{course.state}}</td>
+							<td style="text-align: center;">
+								<div class="dot bad" ng-if="course.overdue == 'true'"></div>
+								<div class="dot good" ng-if="course.overdue !== 'true'"></div>
+							</td>
+							<td>{{course.course.display_value}}</td>
+							<td>{{course.score}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="team" ng-if="view == 'team'">
+				<h2>My Team</h2>
+				<div class="message">Select team member to view transcript:</div>
+				<ul>
+<!-- 					<li ng-repeat="report in manager_transcripts | groupBy: 'user'">
+						{{report.user.display_value}}
+					</li> -->
+
+					<ul ng-repeat="(key, value) in manager_transcripts | groupBy: 'user.display_value'">
+					  <h3>{{key}}</h3>
+					  <div class="table">
+							<table>
+								<tr ng-repeat="report in value | orderBy : '-overdue'">
+									<td>{{report.state ? report.state : 'Ongoing'}}</td>
+									<td style="text-align: center;">
+										<div class="dot bad" ng-if="report.overdue == 'true'"></div>
+										<div class="dot good" ng-if="report.overdue !== 'true'"></div>
+									</td>
+									<td>{{report.course.display_value}}</td>
+									<td>{{report.score}}</td>
+								</tr>
+							</table>
+						</div>
+					</ul>
+
+				</ul>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="Course" ng-if="course_visible == true">
+		<div class="progression">
+			<ul>
+				<li class="is-complete">Get to the office</li>
+				<li class="is-complete">Turn on your computer</li>
+				<li class="is-active">Compete in competition</li>
+				<li>Win prizes</li>
+				<li>Go home with a feeling of satisfaction</li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="header">
+				<div class="title">
+					<span>
+						Course 204: Advanced Hackathoning
+					</span>
+				</div>
+				<div class="back" ng-click="close_course()">
+					<button>
+						&lt; Back to portal
+					</button>
+				</div>
+			</div>
+			<div class="current">
+				<div class="video">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dVjYosscjTQ" frameborder="0"></iframe>
+				</div>
+			</div>
+			<div class="controls">
+				<button class="btn-back">Back</button>
+				<button class="btn-next">Next</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		window.g_ck = "$[g_ck]";
+		window.user = "$[user]";
+		window.first_name = "$[first_name]";
+		window.user_id = "${gs.getUserID()}";
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.14/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.16/angular-filter.min.js"></script>
+</body>
+</html>
+
+</j:jelly>]]></html>
+        <name>learn</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>tom.conklin</sys_created_by>
+        <sys_created_on>2017-06-17 01:01:02</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>954c24df4f57f200cee301b18110c790</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>learn</sys_name>
+        <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+        <sys_update_name>sys_ui_page_954c24df4f57f200cee301b18110c790</sys_update_name>
+        <sys_updated_by>katrina.banks</sys_updated_by>
+        <sys_updated_on>2017-06-17 01:19:29</sys_updated_on>
+    </sys_ui_page>
+</record_update>

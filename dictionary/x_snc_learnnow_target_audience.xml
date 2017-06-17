@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Target Audience" max_length="40" name="x_snc_learnnow_target_audience" type="collection">
+        <element display="true" label="Name" max_length="40" name="name" type="string"/>
+    </element>
+</database>

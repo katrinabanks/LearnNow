@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="pass" table="x_snc_learnnow_student_transcript" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>pass</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>No</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence/>
+            <sys_created_by>katrina.miller</sys_created_by>
+            <sys_created_on>2017-06-16 18:57:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cc4997cb4f93f200cee301b18110c76f</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>katrina.miller</sys_updated_by>
+            <sys_updated_on>2017-06-16 18:59:10</sys_updated_on>
+            <value>no</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>pass</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Yes</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence/>
+            <sys_created_by>katrina.miller</sys_created_by>
+            <sys_created_on>2017-06-16 18:57:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4d391bcb4f93f200cee301b18110c752</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>katrina.miller</sys_updated_by>
+            <sys_updated_on>2017-06-16 18:59:01</sys_updated_on>
+            <value>yes</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>pass</element>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>katrina.miller</sys_created_by>
+            <sys_created_on>2017-06-16 18:57:40</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>16efe8934fdf72003bba396f0310c78a</sys_id>
+            <sys_mod_count>5</sys_mod_count>
+            <sys_name>pass</sys_name>
+            <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+            <sys_update_name>sys_choice_x_snc_learnnow_student_transcript_pass</sys_update_name>
+            <sys_updated_by>tom.conklin</sys_updated_by>
+            <sys_updated_on>2017-06-17 00:34:16</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

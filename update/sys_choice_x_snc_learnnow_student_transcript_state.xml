@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="state" table="x_snc_learnnow_student_transcript" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>true</inactive>
+            <label>No Started</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence>0</sequence>
+            <sys_created_by>lisa.slavin</sys_created_by>
+            <sys_created_on>2017-06-16 20:02:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0328eb0f1397f200226f53173244b013</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lisa.slavin</sys_updated_by>
+            <sys_updated_on>2017-06-16 20:02:54</sys_updated_on>
+            <value>No Started</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Not Started</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence>0</sequence>
+            <sys_created_by>lisa.slavin</sys_created_by>
+            <sys_created_on>2017-06-16 20:02:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8b28270f1397f200226f53173244b042</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lisa.slavin</sys_updated_by>
+            <sys_updated_on>2017-06-16 20:02:54</sys_updated_on>
+            <value>Not Started</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>In Progress</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence>1</sequence>
+            <sys_created_by>lisa.slavin</sys_created_by>
+            <sys_created_on>2017-06-16 20:02:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cb28270f1397f200226f53173244b043</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lisa.slavin</sys_updated_by>
+            <sys_updated_on>2017-06-16 20:02:54</sys_updated_on>
+            <value>In Progress</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Completed</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence>2</sequence>
+            <sys_created_by>lisa.slavin</sys_created_by>
+            <sys_created_on>2017-06-16 20:02:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8728270f1397f200226f53173244b044</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lisa.slavin</sys_updated_by>
+            <sys_updated_on>2017-06-16 20:02:54</sys_updated_on>
+            <value>Completed</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Dropped</label>
+            <language>en</language>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sequence>3</sequence>
+            <sys_created_by>lisa.slavin</sys_created_by>
+            <sys_created_on>2017-06-16 20:02:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4728eb0f1397f200226f53173244b012</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>lisa.slavin</sys_updated_by>
+            <sys_updated_on>2017-06-16 20:02:54</sys_updated_on>
+            <value>Dropped</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <name>x_snc_learnnow_student_transcript</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>lisa.slavin</sys_created_by>
+            <sys_created_on>2017-06-16 20:02:54</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>1eefe8934fdf72003bba396f0310c78c</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>state</sys_name>
+            <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+            <sys_update_name>sys_choice_x_snc_learnnow_student_transcript_state</sys_update_name>
+            <sys_updated_by>tom.conklin</sys_updated_by>
+            <sys_updated_on>2017-06-17 00:34:12</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Student Transcript" max_length="40" name="x_snc_learnnow_student_transcript" type="collection">
+        <element default="javascript: gs.getUserID();" label="Assigned by" max_length="32" name="assigned_by" reference="sys_user" type="reference"/>
+        <element default="javascript: new GlideDate().getDisplayValue();" label="Assigned on" max_length="40" name="assigned_on" type="glide_date"/>
+        <element label="Completion date" max_length="40" name="completion_date" type="glide_date"/>
+        <element label="Course" max_length="32" name="course" reference="x_snc_learnnow_course" type="reference"/>
+        <element label="Course type" max_length="80" name="course_type" type="string"/>
+        <element label="Days overdue" max_length="40" name="days_overdue" type="integer"/>
+        <element label="Enrollment date" max_length="40" name="enrollment_date" type="glide_date"/>
+        <element choice="1" default="not_enrolled" label="Enrollment state" max_length="40" name="enrollment_state" type="choice">
+            <choice>
+                <element label="Enrolled" value="enrolled"/>
+                <element label="Not Enrolled" value="not_enrolled"/>
+            </choice>
+        </element>
+        <element label="Overdue" max_length="40" name="overdue" type="boolean"/>
+        <element choice="1" label="Pass" max_length="40" name="pass" type="choice">
+            <choice>
+                <element label="No" value="no"/>
+                <element label="Yes" value="yes"/>
+            </choice>
+        </element>
+        <element label="Score" max_length="20" name="score" type="decimal"/>
+        <element label="Session" max_length="32" name="session" reference="x_snc_learnnow_ilt_session" type="reference"/>
+        <element choice="1" label="Status" max_length="40" name="state" type="choice">
+            <choice>
+                <element label="Not Started" sequence="0" value="Not Started"/>
+                <element label="In Progress" sequence="1" value="In Progress"/>
+                <element label="Completed" sequence="2" value="Completed"/>
+                <element label="Dropped" sequence="3" value="Dropped"/>
+            </choice>
+        </element>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="session"/>
+        </index>
+        <index name="index2">
+            <element name="course"/>
+        </index>
+        <index name="index3">
+            <element name="assigned_by"/>
+        </index>
+        <index name="index4">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

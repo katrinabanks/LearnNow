@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Course Track" max_length="40" name="x_snc_learnnow_course_track" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Badge" max_length="32" name="badge" reference="x_snc_learnnow_badge" type="reference"/>
+        <element label="Description" max_length="8000" name="description" type="html"/>
+        <element label="Name" max_length="80" name="name" type="string"/>
+        <index name="index">
+            <element name="badge"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="sys_import_set_row" label="WBT Activity" max_length="40" name="x_snc_learnnow_wbtactivities" type="collection">
+        <element attributes="import_attribute_name=Course,edge_encryption_enabled=true" label="Course" max_length="56" name="u_course" type="string"/>
+        <element attributes="import_attribute_name=Duration" label="Duration" max_length="40" name="u_duration" type="integer"/>
+        <element attributes="import_attribute_name=Title,edge_encryption_enabled=true" label="Title" max_length="67" name="u_title" type="string"/>
+        <element attributes="import_attribute_name=Type,edge_encryption_enabled=true" label="Type" max_length="40" name="u_type" type="string"/>
+    </element>
+</database>

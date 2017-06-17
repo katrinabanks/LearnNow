@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="title" label="Title" language="en" table="x_snc_learnnow_wbt_activity">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>title</element>
+            <help/>
+            <hint/>
+            <label>Title</label>
+            <language>en</language>
+            <name>x_snc_learnnow_wbt_activity</name>
+            <plural>Titles</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>tom.conklin</sys_created_by>
+            <sys_created_on>2017-06-10 21:08:14</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>299df8d10f5bfa008dbe28b8b1050ee6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Title</sys_name>
+            <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_learnnow_wbt_activity_title_en</sys_update_name>
+            <sys_updated_by>tom.conklin</sys_updated_by>
+            <sys_updated_on>2017-06-10 21:08:14</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Run Transcript Assignment Rules</name>
+        <run_as display_value="Tom Conklin">7bb4dd7e4fd6f2003bba396f0310c7d8</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2017-06-16 20:17:52</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[this.applyTranscriptAssignmentRules();
+
+function applyTranscriptAssignmentRules() {
+	var gr = new GlideRecord("x_snc_learnnow_transcript_assignment_rule");
+	gr.addActiveQuery();
+	gr.orderBy("order");
+	gr.query();
+	
+	gs.info("Returned " + gr.getRowCount() + " rules to execute");
+	
+	while (gr.next()) {
+		this.executeRule(gr);
+	}
+	
+}
+
+function executeRule(rule) {
+	var table = rule.table;
+	var conditions = rule.conditions;
+	
+	gs.info("table = " + table + ", conditions = " + conditions);
+	
+	var gr = new GlideRecord(table);
+	gr.addEncodedQuery(conditions);
+	gr.query();
+	
+	gs.info("Retrieved " + gr.getRowCount() + " records from the " + table + " table.");
+	
+	while (gr.next()) {
+		if(!this.hasStudentTranscript(gr,rule)) {
+			this.insertStudentTranscript(gr.sys_id, rule.course);
+		}
+	}
+}
+
+function hasStudentTranscript(user,rule) {
+	var hasRecord = false;
+	
+	var gr = new GlideRecord("x_snc_learnnow_student_transcript");
+	gr.addQuery("assigned_to", user.sys_id);
+	gr.addQuery("course", rule.course);
+	gr.query();
+	if (gr.next()) {
+		hasRecord = true;
+	}
+	return hasRecord;
+}
+
+function insertStudentTranscript(userId,courseId) {
+	var gr = new GlideRecord("x_snc_learnnow_student_transcript");
+	gr.initialize();
+	gr.user = userId;
+	gr.course = courseId;
+	gr.insert();
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>tom.conklin</sys_created_by>
+        <sys_created_on>2017-06-16 20:18:14</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>5e9bafc74fd3f200cee301b18110c77e</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Run Transcript Assignment Rules</sys_name>
+        <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+        <sys_update_name>sysauto_script_5e9bafc74fd3f200cee301b18110c77e</sys_update_name>
+        <sys_updated_by>tom.conklin</sys_updated_by>
+        <sys_updated_on>2017-06-16 21:35:10</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

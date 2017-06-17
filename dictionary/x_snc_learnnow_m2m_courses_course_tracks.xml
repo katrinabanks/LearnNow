@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Learnnow M2m Courses Course Tracks" max_length="40" name="x_snc_learnnow_m2m_courses_course_tracks" type="collection">
+        <element label="Course" max_length="32" name="course" reference="x_snc_learnnow_course" type="reference"/>
+        <element label="Course Track" max_length="32" name="course_track" reference="x_snc_learnnow_course_track" type="reference"/>
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <index name="index">
+            <element name="course_track"/>
+        </index>
+        <index name="index2">
+            <element name="course"/>
+        </index>
+    </element>
+</database>

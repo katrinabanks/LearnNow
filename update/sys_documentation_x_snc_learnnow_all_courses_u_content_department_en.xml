@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="u_content_department" label="Content department" language="en" table="x_snc_learnnow_all_courses">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_content_department</element>
+            <help/>
+            <hint/>
+            <label>Content department</label>
+            <language>en</language>
+            <name>x_snc_learnnow_all_courses</name>
+            <plural>Content departments</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>katrina.miller</sys_created_by>
+            <sys_created_on>2017-06-16 16:20:57</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_id>73553e074f53f200cee301b18110c719</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Content department</sys_name>
+            <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_learnnow_all_courses_u_content_department_en</sys_update_name>
+            <sys_updated_by>katrina.miller</sys_updated_by>
+            <sys_updated_on>2017-06-16 16:20:57</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

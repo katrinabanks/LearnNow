@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Student Badge" max_length="40" name="x_snc_learnnow_student_badge" type="collection">
+        <element label="Achieved" max_length="40" name="achieved" type="glide_date_time"/>
+        <element label="Badge" max_length="32" name="badge" reference="x_snc_learnnow_badge" type="reference"/>
+        <element label="Student" max_length="32" name="student" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="badge"/>
+        </index>
+        <index name="index2">
+            <element name="student"/>
+        </index>
+    </element>
+</database>

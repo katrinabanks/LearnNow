@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="" label="Course Track" language="en" table="x_snc_learnnow_course_track">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>Course Track</label>
+            <language>en</language>
+            <name>x_snc_learnnow_course_track</name>
+            <plural>Course Tracks</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>tom.conklin</sys_created_by>
+            <sys_created_on>2017-06-15 18:04:45</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>2e834eb60fd332408dbe28b8b1050e6e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Course Track</sys_name>
+            <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_learnnow_course_track__en</sys_update_name>
+            <sys_updated_by>tom.conklin</sys_updated_by>
+            <sys_updated_on>2017-06-15 18:04:45</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

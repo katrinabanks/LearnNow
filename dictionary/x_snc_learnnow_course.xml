@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Course" max_length="40" name="x_snc_learnnow_course" type="collection">
+        <element label="Badge" max_length="32" name="badge" reference="x_snc_learnnow_badge" type="reference"/>
+        <element label="Department Content Owner" max_length="32" name="content_department" reference="cmn_department" type="reference"/>
+        <element label="Content Owner" max_length="32" name="content_owner" reference="sys_user" type="reference"/>
+        <element choice="1" label="Delivery type" max_length="40" name="delivery_type" type="choice">
+            <choice>
+                <element label="ILT" value="ilt"/>
+                <element label="WBT" value="WBT"/>
+            </choice>
+        </element>
+        <element label="Duration" max_length="40" name="duraton" type="glide_duration"/>
+        <element label="ID" max_length="40" name="id" type="string"/>
+        <element label="Objectives" max_length="8000" name="objectives" type="html"/>
+        <element label="Overview" max_length="8000" name="overview" type="html"/>
+        <element label="Points" max_length="40" name="points" type="integer"/>
+        <element label="Secondary audience" max_length="32" name="secondary_audience" reference="x_snc_learnnow_target_audience" type="reference"/>
+        <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
+        <element label="Target audience" max_length="32" name="target_audience" reference="x_snc_learnnow_target_audience" type="reference"/>
+        <element display="true" label="Title" max_length="80" name="title" type="string"/>
+        <index name="index">
+            <element name="badge"/>
+        </index>
+        <index name="index2">
+            <element name="secondary_audience"/>
+        </index>
+        <index name="index3">
+            <element name="target_audience"/>
+        </index>
+        <index name="index4">
+            <element name="content_department"/>
+        </index>
+        <index name="index5">
+            <element name="content_owner"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="ILT Session Day" max_length="40" name="x_snc_learnnow_ilt_session_day" type="collection">
+        <element label="End" max_length="40" name="end" type="glide_date_time"/>
+        <element label="Instructor" max_length="32" name="instructor" reference="sys_user" type="reference"/>
+        <element label="Location" max_length="32" name="location" reference="cmn_location" type="reference"/>
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <element label="Session" max_length="32" name="session" reference="x_snc_learnnow_ilt_session" type="reference"/>
+        <element label="Start" max_length="40" name="start" type="glide_date_time"/>
+        <index name="index">
+            <element name="instructor"/>
+        </index>
+        <index name="index2">
+            <element name="session"/>
+        </index>
+        <index name="index3">
+            <element name="location"/>
+        </index>
+    </element>
+</database>

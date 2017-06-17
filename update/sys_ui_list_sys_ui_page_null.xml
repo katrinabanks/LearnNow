@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sys_ui_page" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>name</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>cc307c934fdf72003bba396f0310c7e9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>category</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>40307c934fdf72003bba396f0310c7ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>client_script</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>c0307c934fdf72003bba396f0310c7ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>description</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>44307c934fdf72003bba396f0310c7ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>direct</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>c4307c934fdf72003bba396f0310c7ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>html</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>48307c934fdf72003bba396f0310c7ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>processing_script</element>
+            <list_id display_value="sys_ui_page" element="NULL" name="sys_ui_page" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">c8307c934fdf72003bba396f0310c7e9</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>katrina.banks</sys_created_by>
+            <sys_created_on>2017-06-17 01:17:32</sys_created_on>
+            <sys_id>c8307c934fdf72003bba396f0310c7ea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>katrina.banks</sys_updated_by>
+            <sys_updated_on>2017-06-17 01:17:32</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sys_ui_page</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>tom.conklin</sys_created_by>
+            <sys_created_on>2017-06-17 00:59:29</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5eb5bf4fd7713100a9ad1e173e24d47f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_ui_page</sys_name>
+            <sys_package display_value="LearnNow" source="x_snc_learnnow">51f4b4990f1bfa008dbe28b8b1050e53</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="LearnNow">51f4b4990f1bfa008dbe28b8b1050e53</sys_scope>
+            <sys_update_name>sys_ui_list_sys_ui_page_null</sys_update_name>
+            <sys_updated_by>tom.conklin</sys_updated_by>
+            <sys_updated_on>2017-06-17 00:59:29</sys_updated_on>
+            <sys_user display_value="Tom Conklin">7bb4dd7e4fd6f2003bba396f0310c7d8</sys_user>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>
